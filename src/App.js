@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import Game from "./components/Game";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
+      <h1>Maze Game</h1>
+      <Game />
+      <footer>
+        Project by LazyCoder16(Abhishek Jain). Check out the source code at{" "}
+        <a href="https://github.com/LazyCoder16/maze-game">
+          https://github.com/LazyCoder16/maze-game
         </a>
-      </header>
+      </footer>
     </div>
   );
 }
