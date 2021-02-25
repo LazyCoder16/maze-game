@@ -2,7 +2,7 @@
   "name": "maze-game",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://lazycoder16.github.io/maze-game/",
+  "homepage": "http://lazycoder16.github.io/maze-game/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
