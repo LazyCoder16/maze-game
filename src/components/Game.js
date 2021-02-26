@@ -28,11 +28,7 @@ class Game extends Component {
     };
     this.state.player = [this.state.r - 1, this.state.c - 1];
     this.state.walls = this.initWalls(this.state.r, this.state.c);
-
-    const vis = Array(this.state.r)
-      .fill()
-      .map(() => Array(this.state.c).fill(false));
-    this.createMaze(this.state.walls, vis, ...this.state.player);
+    this.createMazeGTA(this.state.walls, this.state.r, this.state.c);
   }
 
   componentDidMount() {
@@ -63,18 +59,34 @@ class Game extends Component {
     return arr;
   };
 
-  createMaze = (walls, vis, i, j) => {
-    const r = vis.length;
-    const c = vis[0].length;
-    vis[i][j] = true;
+  createMazeGTA = (walls, r, c) => {
+    const C = [[r - 1, c - 1]];
+    const vis = Array(r)
+      .fill()
+      .map(() => Array(c).fill(false));
+    vis[r - 1][c - 1] = true;
 
-    for (const d of this.shuffle([0, 1, 2, 3])) {
-      const ni = i + this.dir[d][0],
-        nj = j + this.dir[d][1];
-      if (ni >= 0 && ni < r && nj >= 0 && nj < c && !vis[ni][nj]) {
-        walls[i][j][d] = 0;
-        walls[ni][nj][(d + 2) % 4] = 0;
-        this.createMaze(walls, vis, ni, nj);
+    while (C.length !== 0) {
+      let ind;
+      if (Math.random() > 0.25) ind = C.length - 1;
+      else ind = Math.floor(Math.random() * C.length);
+      const [x, y] = C[ind];
+
+      const valid_dir = [];
+      for (let d = 0; d < 4; ++d) {
+        const [nx, ny] = [x + this.dir[d][0], y + this.dir[d][1]];
+        if (nx >= 0 && nx < r && ny >= 0 && ny < c && !vis[nx][ny])
+          valid_dir.push(d);
+      }
+
+      if (valid_dir.length === 0) C.splice(ind, 1);
+      else {
+        const d = valid_dir[Math.floor(Math.random() * valid_dir.length)];
+        const [nx, ny] = [x + this.dir[d][0], y + this.dir[d][1]];
+        walls[x][y][d] = 0;
+        walls[nx][ny][(d + 2) % 4] = 0;
+        C.push([nx, ny]);
+        vis[nx][ny] = true;
       }
     }
   };
@@ -114,10 +126,7 @@ class Game extends Component {
     }
     const player = [r - 1, c - 1];
     const walls = this.initWalls(r, c);
-    const vis = Array(r)
-      .fill()
-      .map(() => Array(c).fill(false));
-    this.createMaze(walls, vis, ...player);
+    this.createMazeGTA(walls, r, c);
     this.setState({ r, c, player, walls, moves: 0 });
   };
 
