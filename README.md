@@ -16,4 +16,5 @@ Here is a screenshot of the app:
 
 ## External links
 
-Wikepedia article on maze generation: [https://en.wikipedia.org/wiki/Maze_generation_algorithm](https://en.wikipedia.org/wiki/Maze_generation_algorithm)
+Wikepedia article on maze generation: [https://en.wikipedia.org/wiki/Maze_generation_algorithm](https://en.wikipedia.org/wiki/Maze_generation_algorithm)  
+Growing Tree Algorithm: [http://weblog.jamisbuck.org/2011/1/27/maze-generation-growing-tree-algorithm.html](http://weblog.jamisbuck.org/2011/1/27/maze-generation-growing-tree-algorithm.html)
