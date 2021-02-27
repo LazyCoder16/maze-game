@@ -1,8 +1,19 @@
 import { useState } from "react";
 
-function Dropdown({ selected, setDiff }) {
+function Dropdown({ selected, setDiff, labels }) {
   const [isExpanded, setIsExpanded] = useState(false);
-
+  const options = Object.keys(labels).map((key) => (
+    <div
+      className="option"
+      onClick={() => {
+        setDiff(key);
+        setIsExpanded(false);
+      }}
+      key={key}
+    >
+      {labels[key]}
+    </div>
+  ));
   const toggleMenu = () => setIsExpanded(!isExpanded);
 
   return (
@@ -12,33 +23,7 @@ function Dropdown({ selected, setDiff }) {
         <i className={`fa fa-angle-right ${isExpanded ? "rotated" : ""}`}></i>
       </div>
       <div className={`dropdown-menu ${!isExpanded ? "hidden" : ""}`}>
-        <div
-          className="option"
-          onClick={() => {
-            setDiff("e");
-            setIsExpanded(false);
-          }}
-        >
-          Easy
-        </div>
-        <div
-          className="option"
-          onClick={() => {
-            setDiff("m");
-            setIsExpanded(false);
-          }}
-        >
-          Medium
-        </div>
-        <div
-          className="option"
-          onClick={() => {
-            setDiff("h");
-            setIsExpanded(false);
-          }}
-        >
-          Hard
-        </div>
+        {options}
       </div>
     </div>
   );

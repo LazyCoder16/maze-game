@@ -141,7 +141,11 @@ class Game extends Component {
       <div className="game">
         <Board r={r} c={c} player={player} walls={walls} />
         <div className="bottom-bar">
-          <Dropdown selected={labels[difficulty]} setDiff={this.setDiff} />
+          <Dropdown
+            selected={labels[difficulty]}
+            setDiff={this.setDiff}
+            labels={labels}
+          />
           <button className="start-btn" onClick={this.start}>
             Start
           </button>
