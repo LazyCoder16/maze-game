@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/maze-game/static/css/main.49f3b3f9.chunk.css",
-    "main.js": "/maze-game/static/js/main.180613ab.chunk.js",
-    "main.js.map": "/maze-game/static/js/main.180613ab.chunk.js.map",
+    "main.js": "/maze-game/static/js/main.64279305.chunk.js",
+    "main.js.map": "/maze-game/static/js/main.64279305.chunk.js.map",
     "runtime-main.js": "/maze-game/static/js/runtime-main.612a0fca.js",
     "runtime-main.js.map": "/maze-game/static/js/runtime-main.612a0fca.js.map",
     "static/js/2.5d814a20.chunk.js": "/maze-game/static/js/2.5d814a20.chunk.js",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.612a0fca.js",
     "static/js/2.5d814a20.chunk.js",
     "static/css/main.49f3b3f9.chunk.css",
-    "static/js/main.180613ab.chunk.js"
+    "static/js/main.64279305.chunk.js"
   ]
 }
